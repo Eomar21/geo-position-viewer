@@ -1,8 +1,6 @@
-# Geo-Position-Viewer
+# GeoPositionViewer.App
 A test project for viewing a geographical position (at high interval and at 2 seconds interval) and an average position. 
 
-
-# GeoPositionViewer.App
 ## Overview
 GeoPositionViewer.App is a WPF application designed to display position information. The application shows:
 
