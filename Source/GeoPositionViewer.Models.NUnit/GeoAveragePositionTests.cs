@@ -28,7 +28,9 @@ namespace GeoPositionViewer.Tests
             var empty = GeoAveragePosition.Empty;
 
             // Assert
-            Assert.That(empty.AveragePosition, Is.EqualTo(Position.Empty));
+            Assert.That(empty.AveragePosition.Latitude, Is.EqualTo(Position.Empty.Latitude));
+            Assert.That(empty.AveragePosition.Longitude, Is.EqualTo(Position.Empty.Longitude));
+
             Assert.That(empty.PositionsCount, Is.EqualTo(0));
         }
     }

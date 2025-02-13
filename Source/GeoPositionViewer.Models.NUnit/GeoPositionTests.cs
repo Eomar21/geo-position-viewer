@@ -27,7 +27,8 @@ namespace GeoPositionViewer.Tests
             var empty = GeoPosition.Empty;
 
             // Assert
-            Assert.That(empty.Position, Is.EqualTo(Position.Empty));
+            Assert.That(empty.Position.Latitude, Is.EqualTo(Position.Empty.Latitude));
+            Assert.That(empty.Position.Longitude, Is.EqualTo(Position.Empty.Longitude));
             Assert.That(empty.Timestamp, Is.EqualTo(DateTime.MinValue));
         }
     }

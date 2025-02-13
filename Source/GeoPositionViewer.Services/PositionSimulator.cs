@@ -31,15 +31,20 @@ namespace GeoPositionViewer.Services
 
             Random random = new Random();
 
-            // Generate small random offsets (positive or negative) within the range of maxDegreeOffset
             double latitudeOffset = (random.NextDouble() * maxDegreeOffset * 2) - maxDegreeOffset;
             double longitudeOffset = (random.NextDouble() * maxDegreeOffset * 2) - maxDegreeOffset;
 
-            // Calculate the new latitude and longitude by applying the offsets
             double newLatitude = currentPosition.Position.Latitude + latitudeOffset;
             double newLongitude = currentPosition.Position.Longitude + longitudeOffset;
 
             return new GeoPosition(new Position(newLatitude, newLongitude), DateTime.UtcNow);
+        }
+
+        // Added this method for unit testing - not the best approach - and no code shall be added only for unit testing
+        // but did this for now as this is simulator class and would be replaced either way in production.
+        public void TriggerPositionGenerated(GeoPosition position)
+        {
+            PositionGenerated?.Invoke(this, position);
         }
     }
 }
