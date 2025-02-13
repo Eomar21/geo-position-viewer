@@ -1,5 +1,5 @@
-# geo-position-viewer
-a test project for viewing a geographical position and an average position.
+# Geo-Position-Viewer
+A test project for viewing a geographical position and an average position.
 
 # Requirment Criteria for this task
 
