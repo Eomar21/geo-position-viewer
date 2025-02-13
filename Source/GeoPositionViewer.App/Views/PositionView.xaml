@@ -27,7 +27,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="LightBlue">
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="100">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontWeight="Bold" Text="Lat:     " />
                         <TextBlock Text="{Binding GeoPosition.Position.Latitude}"></TextBlock>
@@ -50,7 +50,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="LightBlue">
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="100">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontWeight="Bold" Text="Lat:     " />
                         <TextBlock Text="{Binding GeoAveragePosition.AveragePosition.Latitude}"></TextBlock>
@@ -76,9 +76,9 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="LightBlue">
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="100">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontWeight="Bold" Text="Lat:     " />
+                        <TextBlock FontWeight="Bold" Text="Lat:     "/>
                         <TextBlock Text="{Binding GeoRawPosition.Position.Latitude}"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
