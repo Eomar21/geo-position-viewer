@@ -9,7 +9,7 @@ GeoPositionViewer.App is a WPF application designed to display position informat
 - Average Position: Shows the calculated average position and the count of positions since the application started.
 The application follows the MVVM architecture and SOLID principles. It includes a position simulator service that generates a fake position near the Fugro Nootdorp office with a ±5 meter accuracy.
 
-Getting Started
+## Getting Started
 To run the application, open the GeoPositionViewer.App is the starting point, build the solution in Visual Studio and run the GeoPositionViewer.App.
 
 
