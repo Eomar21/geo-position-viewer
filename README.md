@@ -1,7 +1,21 @@
 # Geo-Position-Viewer
-A test project for viewing a geographical position and an average position.
+A test project for viewing a geographical position (at high interval and at 2 seconds interval) and an average position. 
 
-# Requirment Criteria for this task
+
+# GeoPositionViewer.App
+## Overview
+GeoPositionViewer.App is a WPF application designed to display position information. The application shows:
+
+- Raw Position: Displays the actual position data at a high interval (100 ms) along with a timestamp.
+- Current Position: Displays the actual position data every two seconds along with a timestamp.
+- Average Position: Shows the calculated average position and the count of positions since the application started.
+The application follows the MVVM architecture and SOLID principles. It includes a position simulator service that generates a fake position near the Fugro Nootdorp office with a ±5 meter accuracy.
+
+Getting Started
+To run the application, open the GeoPositionViewer.App is the starting point, build the solution in Visual Studio and run the GeoPositionViewer.App.
+
+
+# Requirment Criteria that was used to do this task
 
 The application is getting frequently a geographic position. You have to calculate the average position and display it in UI. Moreover, the application should also display the current position, not more frequently than every 2 seconds. Please make the UI intuitive and descriptive as much as possible.
 
@@ -20,3 +34,4 @@ Other recommendations:
 * Think "SOLID" 
 * Do the "KISS" 
 * Write "Clean Code"
+
