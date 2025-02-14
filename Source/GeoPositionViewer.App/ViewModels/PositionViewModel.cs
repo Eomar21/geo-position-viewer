@@ -23,11 +23,13 @@ namespace GeoPositionViewer.App.ViewModels
             get => m_GeoAveragePosition;
             set => this.RaiseAndSetIfChanged(ref m_GeoAveragePosition, value);
         }
+
         public GeoPosition GeoPosition
         {
             get => m_GeoPosition;
             set => this.RaiseAndSetIfChanged(ref m_GeoPosition, value);
         }
+
         public int ThrottleSeconds
         {
             get => m_ThrottleSeconds;

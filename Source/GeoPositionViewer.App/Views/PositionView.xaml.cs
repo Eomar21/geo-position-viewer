@@ -12,7 +12,6 @@ namespace GeoPositionViewer.App.Views
         {
             InitializeComponent();
             DataContext = viewModel;
-
         }
     }
 }

@@ -1,6 +1,3 @@
-using GeoPositionViewer.Models;
-using NUnit.Framework;
-
 namespace GeoPositionViewer.Models.NUnit
 {
     [TestFixture]

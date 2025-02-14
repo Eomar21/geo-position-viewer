@@ -1,9 +1,8 @@
 ﻿<UserControl x:Class="GeoPositionViewer.App.Views.PositionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GeoPositionViewer.App.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodel="clr-namespace:GeoPositionViewer.App.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodel:PositionViewModel}"
              mc:Ignorable="d"
@@ -16,10 +15,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.45*" />
             <RowDefinition Height="0.09*" />
-            <RowDefinition Height="0.45*"/>
+            <RowDefinition Height="0.45*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="The current position" >
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="The current position">
             <TextBlock Text="Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center" />
             <Border Width="150"
                     Height="150"
@@ -43,7 +42,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Shows the average position for the amount of positions calculated since the view started, Count values is the total amount of positions used to calculate the average.">
-            <TextBlock Text="Average Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center"/>
+            <TextBlock Text="Average Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center" />
             <Border Width="150"
                     Height="150"
                     BorderBrush="Black"
@@ -99,7 +98,7 @@
             Background="LightBlue">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="100">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontWeight="Bold" Text="Lat:     "/>
+                        <TextBlock FontWeight="Bold" Text="Lat:     " />
                         <TextBlock Text="{Binding GeoRawPosition.Position.Latitude}"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -110,8 +109,5 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-
-
-
     </Grid>
 </UserControl>

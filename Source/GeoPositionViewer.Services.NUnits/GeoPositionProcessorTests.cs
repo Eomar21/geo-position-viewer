@@ -1,5 +1,4 @@
 using GeoPositionViewer.Models;
-using GeoPositionViewer.Services;
 
 namespace GeoPositionViewer.Services.NUnits
 {

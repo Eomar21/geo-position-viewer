@@ -5,7 +5,6 @@
         public Position Position { get; }
         public DateTime Timestamp { get; }
 
-
         public GeoPosition(Position position, DateTime timestamp)
         {
             Position = position;

@@ -4,7 +4,6 @@ namespace GeoPositionViewer.Services
 {
     public static class RegistrationsExtensions
     {
-
         public static IServiceCollection WithPositioningServices(this IServiceCollection services)
         {
             services.AddScoped<IGeoPositionProcessor, GeoPositionProcessor>();

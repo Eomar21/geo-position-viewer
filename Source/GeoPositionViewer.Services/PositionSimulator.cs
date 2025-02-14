@@ -6,6 +6,7 @@ namespace GeoPositionViewer.Services
     public class PositionSimulator : BackgroundService
     {
         public event EventHandler<GeoPosition>? PositionGenerated;
+
         private const int m_OutputRate = 100;
         private const double m_Nootdorp_Lat = 52.042760;
         private const double m_Nootdorp_Long = 4.380580;

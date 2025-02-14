@@ -12,10 +12,8 @@ namespace GeoPositionViewer.App
     /// </summary>
     public partial class App : Application
     {
-
         private IHost m_Host;
         public IServiceProvider m_ServiceProvider => m_Host.Services;
-
 
         public App()
         {
@@ -31,10 +29,8 @@ namespace GeoPositionViewer.App
                 // Views
                 services.AddTransient<MainWindow>();
                 services.AddTransient<PositionView>();
-
             }).Build();
         }
-
 
         protected override async void OnStartup(StartupEventArgs e)
         {
@@ -51,5 +47,4 @@ namespace GeoPositionViewer.App
             m_Host.Dispose();
         }
     }
-
 }
