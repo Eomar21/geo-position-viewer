@@ -8,8 +8,10 @@ GeoPositionViewer.App is a WPF application designed to display position informat
 - **Raw Position**: Displays the actual position data at a high interval (100 ms) along with a timestamp.
 - **Current Position**: Displays the actual position data every two seconds along with a timestamp.
 - **Average Position**: Shows the calculated average position and the count of positions since the application started.
+- **Rate** : The rate slider controls the rate of position data shown for both the Current position and Average position.
   
-![image](https://github.com/user-attachments/assets/63cb36d1-0eaa-4211-bb71-730c1bf1e656)
+![image](https://github.com/user-attachments/assets/35e6f72c-4c10-4edb-8549-c337c4e4ff40)
+
   
 The application follows the MVVM architecture and SOLID principles. It includes a position simulator service that generates a fake position near the Fugro Nootdorp office with a ±5 meter accuracy.
 
