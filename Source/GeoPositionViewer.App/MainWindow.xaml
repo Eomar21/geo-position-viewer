@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GeoPositionViewer.App" xmlns:views="clr-namespace:GeoPositionViewer.App.Views"
+        xmlns:local="clr-namespace:GeoPositionViewer.App" xmlns:views="clr-namespace:GeoPositionViewer.App.Views" xmlns:viewmodels="clr-namespace:GeoPositionViewer.App.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="GeoPositionViewer" Height="450" Width="400" MinWidth="400" MinHeight="450" Background="LightGray">
+        Title="GeoPositionViewer"
+        Height="450"
+        Width="400"
+        MinWidth="400"
+        MinHeight="450"
+        Background="LightGray">
     <Grid>
-
-        <ContentPresenter x:Name="ContentArea"/>
-
+        <ContentControl Content="{Binding PositionView}"/>
     </Grid>
 </Window>

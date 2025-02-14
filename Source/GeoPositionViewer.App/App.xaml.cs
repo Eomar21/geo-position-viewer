@@ -25,6 +25,7 @@ namespace GeoPositionViewer.App
                 services.WithPositioningServices();
 
                 // ViewModels
+                services.AddTransient<MainWindowViewModel>();
                 services.AddTransient<PositionViewModel>();
 
                 // Views
