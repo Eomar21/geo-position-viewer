@@ -14,11 +14,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="0.45*" />
+            <RowDefinition Height="0.09*" />
+            <RowDefinition Height="0.45*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="The current position" >
             <TextBlock Text="Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center" />
             <Border Width="150"
                     Height="150"
@@ -41,7 +42,7 @@
             </Border>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="Shows the average position for the amount of positions calculated since the view started, Count values is the total amount of positions used to calculate the average.">
             <TextBlock Text="Average Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center"/>
             <Border Width="150"
                     Height="150"
@@ -66,8 +67,28 @@
                 </StackPanel>
             </Border>
         </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="300"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="0"
+                    ToolTip="This slider controls the rate of position input shown for both Current Position and Average position.">
+            <TextBlock Text="Rate" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center" />
+            <Slider
+                Width="200"
+                Minimum="1"
+                Maximum="10"
+                Value="{Binding ThrottleSeconds}"
+                TickFrequency="1"
+                IsSnapToTickEnabled="True"
+                IsSelectionRangeEnabled="True"
+                AutoToolTipPlacement="TopLeft"
+                AutoToolTipPrecision="0" />
+        </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Raw Position" FontWeight="Bold" Margin="0,0,5,0" HorizontalAlignment="Center" />
             <Border Width="150"
             Height="150"
@@ -89,6 +110,7 @@
                 </StackPanel>
             </Border>
         </StackPanel>
+
 
 
     </Grid>

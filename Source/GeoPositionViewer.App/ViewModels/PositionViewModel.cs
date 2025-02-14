@@ -16,7 +16,7 @@ namespace GeoPositionViewer.App.ViewModels
 
         private List<Position> m_Positions = new List<Position>();
         private const int m_RoundingDigits = 6;
-        private const int m_ThrottleSeconds = 2;
+        private int m_ThrottleSeconds = 2;
 
         public GeoAveragePosition GeoAveragePosition
         {
@@ -27,6 +27,11 @@ namespace GeoPositionViewer.App.ViewModels
         {
             get => m_GeoPosition;
             set => this.RaiseAndSetIfChanged(ref m_GeoPosition, value);
+        }
+        public int ThrottleSeconds
+        {
+            get => m_ThrottleSeconds;
+            set => this.RaiseAndSetIfChanged(ref m_ThrottleSeconds, value);
         }
 
         public GeoPosition GeoRawPosition
@@ -49,8 +54,10 @@ namespace GeoPositionViewer.App.ViewModels
             {
                 GeoRawPosition = x.RoundValue(m_RoundingDigits);
             }).DisposeWith(m_Disposable);
-            var throttledStream = positionGeneratedStream.Sample(TimeSpan.FromSeconds(m_ThrottleSeconds));
-            throttledStream.ObserveOn(RxApp.MainThreadScheduler).Subscribe(x =>
+
+            var dynamicThrottleStream = this.WhenAnyValue(x => x.ThrottleSeconds).Select(x => positionGeneratedStream.Sample(TimeSpan.FromSeconds(x))).Switch();
+
+            dynamicThrottleStream.ObserveOn(RxApp.MainThreadScheduler).Subscribe(x =>
             {
                 GeoPosition = x.RoundValue(m_RoundingDigits);
                 m_Positions.Add(x.Position.RoundValue(m_RoundingDigits));
