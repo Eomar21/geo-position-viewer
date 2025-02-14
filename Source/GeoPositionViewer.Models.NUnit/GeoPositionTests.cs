@@ -1,6 +1,6 @@
 ﻿using GeoPositionViewer.Models;
 
-namespace GeoPositionViewer.Tests
+namespace GeoPositionViewer.Models.NUnit
 {
     [TestFixture]
     public class GeoPositionTests

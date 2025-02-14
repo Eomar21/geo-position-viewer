@@ -35,8 +35,9 @@ namespace GeoPositionViewer.App.ViewModels
 
         public PositionViewModel(IGeoPositionProcessor geoPositionProcessor, PositionSimulator positionSimulator)
         {
-            GeoPosition = GeoPosition.Empty;
-            GeoAveragePosition = GeoAveragePosition.Empty;
+            m_GeoPosition = GeoPosition.Empty;
+            m_GeoAveragePosition = GeoAveragePosition.Empty;
+            m_GeoRawPosition = GeoPosition.Empty;
             var positionGeneratedStream = Observable.FromEventPattern<GeoPosition>(
                 h => positionSimulator.PositionGenerated += h,
                 h => positionSimulator.PositionGenerated -= h)
@@ -44,16 +45,16 @@ namespace GeoPositionViewer.App.ViewModels
 
             positionGeneratedStream.Subscribe(x =>
             {
-                GeoRawPosition = x.RoundValue(m_RoundingDigits);
+                m_GeoRawPosition = x.RoundValue(m_RoundingDigits);
             });
             var throttledStream = positionGeneratedStream.Sample(TimeSpan.FromSeconds(m_ThrottleSeconds));
             throttledStream.ObserveOn(RxApp.MainThreadScheduler).Subscribe(x =>
             {
-                GeoPosition = x.RoundValue(m_RoundingDigits);
+                m_GeoPosition = x.RoundValue(m_RoundingDigits);
                 m_Positions.Add(x.Position.RoundValue(m_RoundingDigits));
                 if (m_Positions is not null)
                 {
-                    GeoAveragePosition = geoPositionProcessor.GetAveragePosition(m_Positions).RoundValue(m_RoundingDigits);
+                    m_GeoAveragePosition = geoPositionProcessor.GetAveragePosition(m_Positions).RoundValue(m_RoundingDigits);
                 }
             });
         }

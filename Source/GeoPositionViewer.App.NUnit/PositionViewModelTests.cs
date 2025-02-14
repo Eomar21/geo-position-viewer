@@ -3,7 +3,7 @@ using GeoPositionViewer.Models;
 using GeoPositionViewer.Services;
 using Moq;
 
-namespace GeoPositionViewer.Tests
+namespace GeoPositionViewer.App.NUnit
 {
     [TestFixture]
     public class PositionViewModelTests
@@ -32,9 +32,6 @@ namespace GeoPositionViewer.Tests
         [TearDown]
         public void TearDown()
         {
-            m_GeoPositionProcessorMock = null;
-            m_Simulator = null;
-            m_ViewModel = null;
             m_Simulator?.Dispose();
         }
 

@@ -1,7 +1,7 @@
 using GeoPositionViewer.Models;
 using GeoPositionViewer.Services;
 
-namespace GeoPositionViewer.Tests
+namespace GeoPositionViewer.Services.NUnits
 {
     [TestFixture]
     public class GeoPositionProcessorTests
@@ -53,9 +53,9 @@ namespace GeoPositionViewer.Tests
             var result = m_GeoPositionProcessor.GetAveragePosition(positions);
 
             // Assert
-            Assert.That(50.0, Is.EqualTo(result.AveragePosition.Latitude));
-            Assert.That(10.0, Is.EqualTo(result.AveragePosition.Longitude));
-            Assert.That(1, Is.EqualTo(result.PositionsCount));
+            Assert.That(result.AveragePosition.Latitude, Is.EqualTo(50.0));
+            Assert.That(result.AveragePosition.Longitude, Is.EqualTo(10.0));
+            Assert.That(result.PositionsCount, Is.EqualTo(1));
         }
 
         [Test]

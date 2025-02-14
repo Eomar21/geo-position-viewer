@@ -1,7 +1,7 @@
 using GeoPositionViewer.Models;
 using NUnit.Framework;
 
-namespace GeoPositionViewer.Tests
+namespace GeoPositionViewer.Models.NUnit
 {
     [TestFixture]
     public class GeoAveragePositionTests
