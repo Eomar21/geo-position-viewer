@@ -2,8 +2,8 @@
 {
     public class GeoAveragePosition
     {
-        public Position AveragePosition { get; set; }
-        public int PositionsCount { get; set; }
+        public Position AveragePosition { get; }
+        public int PositionsCount { get; }
 
         public GeoAveragePosition(Position averagePosition, int positionsCount)
         {

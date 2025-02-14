@@ -2,8 +2,8 @@
 {
     public class GeoPosition
     {
-        public Position Position { get; set; }
-        public DateTime Timestamp { get; set; }
+        public Position Position { get; }
+        public DateTime Timestamp { get; }
 
 
         public GeoPosition(Position position, DateTime timestamp)
