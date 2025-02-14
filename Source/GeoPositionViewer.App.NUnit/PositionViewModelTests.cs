@@ -33,6 +33,7 @@ namespace GeoPositionViewer.App.NUnit
         public void TearDown()
         {
             m_Simulator?.Dispose();
+            m_ViewModel.Dispose();
         }
 
         [Test]

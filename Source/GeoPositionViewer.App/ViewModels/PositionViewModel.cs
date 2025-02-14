@@ -2,15 +2,17 @@
 using GeoPositionViewer.Models.Extensions;
 using GeoPositionViewer.Services;
 using ReactiveUI;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 
 namespace GeoPositionViewer.App.ViewModels
 {
-    public class PositionViewModel : ViewModelBase
+    public class PositionViewModel : ViewModelBase, IDisposable
     {
         private GeoAveragePosition m_GeoAveragePosition;
         private GeoPosition m_GeoPosition;
         private GeoPosition m_GeoRawPosition;
+        private readonly CompositeDisposable m_Disposable = new();
 
         private List<Position> m_Positions = new List<Position>();
         private const int m_RoundingDigits = 6;
@@ -45,18 +47,23 @@ namespace GeoPositionViewer.App.ViewModels
 
             positionGeneratedStream.Subscribe(x =>
             {
-                m_GeoRawPosition = x.RoundValue(m_RoundingDigits);
-            });
+                GeoRawPosition = x.RoundValue(m_RoundingDigits);
+            }).DisposeWith(m_Disposable);
             var throttledStream = positionGeneratedStream.Sample(TimeSpan.FromSeconds(m_ThrottleSeconds));
             throttledStream.ObserveOn(RxApp.MainThreadScheduler).Subscribe(x =>
             {
-                m_GeoPosition = x.RoundValue(m_RoundingDigits);
+                GeoPosition = x.RoundValue(m_RoundingDigits);
                 m_Positions.Add(x.Position.RoundValue(m_RoundingDigits));
                 if (m_Positions is not null)
                 {
-                    m_GeoAveragePosition = geoPositionProcessor.GetAveragePosition(m_Positions).RoundValue(m_RoundingDigits);
+                    GeoAveragePosition = geoPositionProcessor.GetAveragePosition(m_Positions).RoundValue(m_RoundingDigits);
                 }
-            });
+            }).DisposeWith(m_Disposable);
+        }
+
+        public void Dispose()
+        {
+            m_Disposable.Dispose();
         }
     }
 }
